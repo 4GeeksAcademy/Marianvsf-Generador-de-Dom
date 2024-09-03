@@ -10,23 +10,23 @@ let adj = ["great", "big"];
 let noun = ["jogger", "racoon"];
 let domains = [".com", ".es"];
 
-function generatorDom() {
-  let random = "";
-  for (let i = 0; i < pronoun.length; i++) {
-    for (let a = 0; a < adj.length; a++) {
-      for (let b = 0; b < noun.length; b++) {
-        for (let c = 0; c < domains.length; c++) {
-          random += pronoun[i] + adj[a] + noun[b] + domains[c] + "</br>";
+function generatorDomainList() {
+  let result = "";
+  for (let pronounItem of pronoun) {
+    for (let adjItem of adj) {
+      for (let nounItem of noun) {
+        for (let domainItem of domains) {
+          result += `${pronounItem}${adjItem}${nounItem}${domainItem}</br>`;
         }
       }
     }
   }
-  return random;
+  return result;
 }
 
 window.onload = function() {
   //write your code here
-  console.log(generatorDom());
+  console.log(generatorDomainList());
   let Dom = document.getElementById("Dom");
-  Dom.innerHTML = generatorDom();
+  Dom.innerHTML = generatorDomainList();
 };
